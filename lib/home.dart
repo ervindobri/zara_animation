@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:zara/dot_bottom_navigation.dart';
 
 class ZaraHome extends StatefulWidget {
   const ZaraHome({Key? key}) : super(key: key);
@@ -121,18 +122,19 @@ class _ZaraHomeState extends State<ZaraHome> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        currentIndex: 0,
-        items: List.generate(
-          5,
-          (index) => BottomNavigationBarItem(
-            backgroundColor: Colors.black,
-            icon: icons[index],
-            label: "• ",
-          ),
-        ),
-      ),
+      bottomNavigationBar: DotBottomNavigation(
+          // color: Colors.black,
+          activeColor: Colors.white,
+          // backgroundColor: Colors.black,
+          items: <DotBottomNavigationItem>[
+            ...List.generate(
+              5,
+              (index) => DotBottomNavigationItem(
+                onTap: () {},
+                icon: icons[index],
+              ),
+            ),
+          ]),
     );
   }
 }
