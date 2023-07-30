@@ -2,6 +2,7 @@ import 'package:cube_transition_plus/cube_transition_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:line_icons/line_icons.dart';
 
 class ZaraHome extends StatefulWidget {
   const ZaraHome({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _ZaraHomeState extends State<ZaraHome> {
   @override
   Widget build(BuildContext context) {
     final icons = [
-      const Icon(CupertinoIcons.home, color: Colors.white),
+      const Icon(LineIcons.home, color: Colors.white),
       const Icon(CupertinoIcons.search, color: Colors.white),
       Text(
         "MENU",
@@ -25,8 +26,8 @@ class _ZaraHomeState extends State<ZaraHome> {
           color: Colors.white,
         ),
       ),
-      const Icon(CupertinoIcons.padlock, color: Colors.white),
-      const Icon(CupertinoIcons.shopping_cart, color: Colors.white),
+      const Icon(LineIcons.user, color: Colors.white),
+      const Icon(LineIcons.shoppingBag, color: Colors.white),
     ];
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
@@ -67,8 +68,8 @@ class _ZaraHomeState extends State<ZaraHome> {
                   return ScaleTransition(
                     scale: animation,
                     child: FadeTransition(
-                      child: child,
                       opacity: animation,
+                      child: child,
                     ),
                   );
                 },
@@ -97,7 +98,9 @@ class _ZaraHomeState extends State<ZaraHome> {
               child: Text(
                 "ZARA",
                 style: GoogleFonts.elsie().copyWith(
-                  color: _currentPage == 4 ? Colors.black : Colors.white,
+                  color: _currentPage == 0 || _currentPage == 4
+                      ? Colors.black
+                      : Colors.white,
                   fontWeight: FontWeight.w100,
                   fontSize: 94,
                 ),
